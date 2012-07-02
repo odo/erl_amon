@@ -1,7 +1,7 @@
 {application, erl_amon,
  [
   {description, "An erlang client for amon (http://amon.cx)."},
-  {vsn, "1"},
+  {vsn, "0.1.0"},
   {registered, []},
   {applications, [
                   kernel,
