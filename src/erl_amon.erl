@@ -94,6 +94,10 @@ send_to_amon_internal(Class, Backtrace, Message, Environment, Url, Data) ->
 		, {"data", Data}
 	]),
 	Reply = ibrowse:send_req(URL, [{"Content-Type", "application/json"}], post, json:to(PostData)),
+	case annalist_running() of
+		true -> annalist:count(<<"error">>);
+		false -> nothing
+	end,
 	parse_reply(Reply).
 
 parse_reply({error, {conn_failed, Error}}) ->
@@ -115,3 +119,5 @@ env(Variable) ->
 		Error -> throw(Error)
 	end.
 
+annalist_running() ->
+	[annalist] =:= [Name||{Name, _, _}<-application:which_applications(), Name =:= annalist].
