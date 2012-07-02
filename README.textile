@@ -1,0 +1,14 @@
+h1. erl_amon
+
+erl_amon is an experimental server to send errors to an amon server (http://amon.cx/) from whithin an erlang application. It is propably not fit for pruoduction.
+
+h2. Usage
+
+Either you start with the host, port and environment as arguments or you configure them before hand:
+
+<pre><code>erl_amon:start("127.0.01", 2464, "production")</pre></code>
+
+<pre><code>application:set_env(erl_amon, host, "127.0.01").
+application:set_env(erl_amon, port, 2464).      
+application:set_env(erl_amon, environment, "production").
+erl_amon:start().</pre></code>

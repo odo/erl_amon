@@ -1,0 +1,12 @@
+{application, erl_amon,
+ [
+  {description, "An erlang client for amon (http://amon.cx)."},
+  {vsn, "1"},
+  {registered, []},
+  {applications, [
+                  kernel,
+                  stdlib
+                 ]},
+  {mod, { erl_amon_app, []}},
+  {env, []}
+ ]}.
